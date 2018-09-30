@@ -1,0 +1,85 @@
+@font-face {
+    font-family: 'Magicthe-Gathering';
+    src:url('../fonts/Magicthe-Gathering.ttf.woff') format('woff'),
+    url('../fonts/Magicthe-Gathering.ttf.svg#Magicthe-Gathering') format('svg'),
+    url('../fonts/Magicthe-Gathering.ttf.eot'),
+    url('../fonts/Magicthe-Gathering.ttf.eot?#iefix') format('embedded-opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.main-title {
+    font-family: Magicthe-Gathering, Georgia, Serif;
+    font-size: 4rem;
+}
+
+.card-title {
+    font-family: Magicthe-Gathering, Georgia, Serif;
+    font-size: 1.8rem;
+}
+
+.card {
+    margin: 1em auto;
+    min-width: 14rem;
+    max-width: 16rem;
+    height: 90%;
+}
+
+.card-body {
+    padding: 1rem;
+    font-size: 0;
+}
+
+.card-text {
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+.card-text .label {
+    font-variant: all-small-caps;
+    font-weight: bold;
+}
+
+.search-btn:hover,
+.search-btn:focus {
+    background-color: #007131;
+}
+
+@-webkit-keyframes spinner {
+    0% {
+        transform: translate3d(-50%, -50%, 0) rotate(0deg);
+    }
+    100% {
+        transform: translate3d(-50%, -50%, 0) rotate(360deg);
+    }
+}
+
+.loading-spinner {
+    position: relative;
+    opacity: 1;
+    transition: opacity linear 0.1s;
+}
+
+.loading-spinner::before {
+    animation: 2s linear infinite spinner;
+    border: solid 4px #aaa;
+    border-bottom-color: #007131;
+    border-radius: 50%;
+    content: "";
+    height: 40px;
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translate3d(-50%, -50%, 0);
+    width: 40px;
+    will-change: transform;
+}
+
+.sr-only {
+    position: absolute;
+    left: -10000px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
