@@ -1,4 +1,4 @@
-#Magic: The Gathering Deck - WordPress Plugin
+# Magic: The Gathering Deck - WordPress Plugin
 
 Basic WordPress plugin to display Magic Cards from https://api.magicthegathering.io/ API.
 
