@@ -22,7 +22,12 @@
     margin: 1em auto;
     min-width: 14rem;
     max-width: 16rem;
-    height: 90%;
+    height: 95%;
+}
+
+.card-img-top {
+    width: auto;
+    margin-bottom: .5rem;
 }
 
 .card-body {

@@ -14,6 +14,7 @@ __To Develop:__ Download files, run `npm install`; run `gulp` to build js files.
 
 *To Do:*
 - Expand search functionality to include search by type, etc.
+- Sort data without making new API request
 - Add more sort options
 - Build out WP admin interface to allow admin to change display options
 - Download vendor scripts/styles and load locally (instead of CDN)
