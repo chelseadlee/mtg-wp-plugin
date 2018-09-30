@@ -26,7 +26,7 @@ var magicCards = new Vue({
         value: 'power'
       }],
       currentPage: 1,
-      pageSize: 100,
+      pageSize: 20,
       // amount of data per request
       loading: true,
       search: '',
@@ -53,7 +53,8 @@ var magicCards = new Vue({
         params: {
           orderBy: this.orderBy,
           contains: 'imageUrl',
-          page: this.currentPage
+          page: this.currentPage,
+          pageSize: this.pageSize
         }
       }).then(function (response) {
         _this2.cards = _this2.cards.concat(response.data.cards);
@@ -78,10 +79,11 @@ var magicCards = new Vue({
       // For now, calculate total number of pages using current number of cards
 
       var totalCards = 37530;
-      var totalPages = totalCards / this.pageSize; // increment currentPage if there are more pages to load
+      var totalPages = totalCards / this.pageSize; // increment currentPage if there are more pages to load, and increase page size to 50.
 
       if (this.currentPage < totalPages) {
         this.currentPage++;
+        this.pageSize = 50;
         this.loadCards();
       }
     },

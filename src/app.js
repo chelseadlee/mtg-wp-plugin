@@ -13,7 +13,7 @@ const magicCards = new Vue({
                 { text: 'Power', value: 'power' },
             ],
             currentPage: 1,
-            pageSize: 100, // amount of data per request
+            pageSize: 20, // amount of data per request
             loading: true,
             search: '',
             cards: [] // card data storage
@@ -34,7 +34,8 @@ const magicCards = new Vue({
                 params: {
                     orderBy: this.orderBy,
                     contains: 'imageUrl',
-                    page: this.currentPage
+                    page: this.currentPage,
+                    pageSize: this.pageSize
                 }
             })
                 .then((response) => {
@@ -62,9 +63,10 @@ const magicCards = new Vue({
             const totalCards = 37530;
             const totalPages = totalCards / this.pageSize;
 
-            // increment currentPage if there are more pages to load
+            // increment currentPage if there are more pages to load, and increase page size to 50.
             if (this.currentPage < totalPages) {
                 this.currentPage++;
+                this.pageSize = 50;
                 this.loadCards();
             }
         },

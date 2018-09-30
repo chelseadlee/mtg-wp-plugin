@@ -58,6 +58,7 @@ class Frontend {
                                         <h5 class="card-title">{{card.name}}</h5>
                                         <span class="card-text"><span class="label">Artist:</span> {{card.artist}}</span><br>
                                         <span class="card-text"><span class="label">Set Name:</span> {{card.setName}}</span><br>
+                                        <span class="card-text"><span class="label">Power:</span> {{card.power}}</span><br>
                                         <span class="card-text"><span class="label">Original Type:</span> {{card.originalType}}</span><br>
                                     </div>
                                 </div>

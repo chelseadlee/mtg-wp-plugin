@@ -62,7 +62,7 @@ class Assets {
 
         $scripts = [
             'vue' => [
-                'src'       => 'https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.min.js',
+                'src'       => 'https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js',
                 'version'   => '2.5.17',
             ],
             'axios' => [
