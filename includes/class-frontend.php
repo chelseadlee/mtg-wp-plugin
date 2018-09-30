@@ -42,11 +42,11 @@ class Frontend {
                             </div>
                             <div class="input-group col-xs-12 col-sm-6 my-3">
                                 <select v-on:change="sortCards" class="form-control">
-                                    <option>Sort By...</option>
-                                    <option>Card Name</option>
-                                    <option>Set Name</option>
-                                    <option>Artist</option>
-                                    <option>Power</option>
+                                    <option disabled selected value="">Sort By...</option>
+                                    <option value="name">Card Name (Default)</option>
+                                    <option value="setName">Set Name</option>
+                                    <option value="artist">Artist</option>
+                                    <option value="power">Power</option>
                                 </select>
                             </div>
                         </div>

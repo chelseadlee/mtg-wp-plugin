@@ -9,22 +9,6 @@ var magicCards = new Vue({
       typeFilter: 'Creature',
       orderBy: 'name',
       // default card order
-      sortOptions: [{
-        text: 'Sort By...',
-        value: 'name'
-      }, {
-        text: 'Card Name',
-        value: 'name'
-      }, {
-        text: 'Set Name',
-        value: 'setName'
-      }, {
-        text: 'Artist',
-        value: 'artist'
-      }, {
-        text: 'Power',
-        value: 'power'
-      }],
       currentPage: 1,
       pageSize: 20,
       // amount of data per request
@@ -79,21 +63,24 @@ var magicCards = new Vue({
       // For now, calculate total number of pages using current number of cards
 
       var totalCards = 37530;
-      var totalPages = totalCards / this.pageSize; // increment currentPage if there are more pages to load, and increase page size to 50.
+      var totalPages = totalCards / this.pageSize; // increment currentPage if there are more pages to load.
 
       if (this.currentPage < totalPages) {
         this.currentPage++;
-        this.pageSize = 50;
         this.loadCards();
       }
     },
     sortCards: function sortCards(e) {
       // get option values from user selection
-      var option = this.sortOptions.find(function (o) {
-        return o.text === e.target.value;
-      }); // reset data and load cards
+      var option = e.target.value;
+      console.log(option); // check to make sure cards aren't already ordered by selected option
 
-      this.orderBy = option.value;
+      if (option === this.orderBy) {
+        return;
+      } // reset data and load cards with new sort order
+
+
+      this.orderBy = option;
       this.currentPage = 1;
       this.cards = [];
       this.loadCards();
