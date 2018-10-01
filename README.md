@@ -2,7 +2,7 @@
 
 Simple WordPress plugin to display Magic Cards from https://api.magicthegathering.io/ API. Application allows search and sort options, and can be used on any WordPress page or plugin
 
-__To View:__ Visit preview on my testing site http://blog.chelsealee.net/magic-challenge/
+__To View:__ Visit preview on my testing site https://blog.chelsealee.net/magic-challenge/
 
 __To Install:__ Download files, upload compressed plugin `magic-cards.zip` to WordPress from plugin menu, and activate plugin. Use shortcode `[magic-cards]` to display application from any post or page.
 
