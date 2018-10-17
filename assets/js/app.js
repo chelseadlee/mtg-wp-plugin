@@ -24,7 +24,7 @@ var magicCards = new Vue({
 
       // filter cards by type (typeFilter) and by search input (search)
       return this.cards.filter(function (card) {
-        return card.types.indexOf(_this.typeFilter) !== -1 && card.name.toLowerCase().includes(_this.search.toLowerCase());
+        return card.types.indexOf(_this.typeFilter) !== -1;
       });
     }
   },
@@ -38,7 +38,8 @@ var magicCards = new Vue({
           orderBy: this.orderBy,
           contains: 'imageUrl',
           page: this.currentPage,
-          pageSize: this.pageSize
+          pageSize: this.pageSize,
+          name: this.search
         }
       }).then(function (response) {
         _this2.cards = _this2.cards.concat(response.data.cards);
@@ -81,6 +82,11 @@ var magicCards = new Vue({
 
 
       this.orderBy = option;
+      this.currentPage = 1;
+      this.cards = [];
+      this.loadCards();
+    },
+    searchCards: function searchCards() {
       this.currentPage = 1;
       this.cards = [];
       this.loadCards();

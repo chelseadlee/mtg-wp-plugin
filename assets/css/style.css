@@ -8,6 +8,12 @@
     font-style: normal;
 }
 
+.sort-label {
+    margin-bottom: 0;
+    line-height: 2.4;
+    padding-right: .4em;
+}
+
 .main-title {
     font-family: Magicthe-Gathering, Georgia, Serif;
     font-size: 4rem;
@@ -25,6 +31,11 @@
     height: 95%;
 }
 
+.card:hover,
+.card:focus {
+    box-shadow: 0 0 5px 3px #cacaca;
+}
+
 .card-img-top {
     width: auto;
     margin-bottom: .5rem;
@@ -35,6 +46,11 @@
     font-size: 0;
 }
 
+.card-body ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
 .card-text {
     font-size: 1rem;
     line-height: 1.5;
@@ -43,6 +59,11 @@
 .card-text .label {
     font-variant: all-small-caps;
     font-weight: bold;
+}
+
+button {
+    background-color: #000;
+    color: #fff;
 }
 
 .search-btn:hover,

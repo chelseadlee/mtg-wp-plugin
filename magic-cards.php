@@ -91,32 +91,6 @@ final class Magic_Cards {
     }
 
     /**
-     * Getter to bypass referencing plugin
-     *
-     * @param $prop
-     *
-     * @return mixed
-     */
-    public function __get( $prop ) {
-        if ( array_key_exists( $prop, $this->container ) ) {
-            return $this->container[ $prop ];
-        }
-
-        return $this->{$prop};
-    }
-
-    /**
-     * isset to bypass referencing plugin
-     *
-     * @param $prop
-     *
-     * @return mixed
-     */
-    public function __isset( $prop ) {
-        return isset( $this->{$prop} ) || isset( $this->container[ $prop ] );
-    }
-
-    /**
      * Define the constants
      *
      * @return void
@@ -141,9 +115,9 @@ final class Magic_Cards {
     }
 
     /**
-     * Placeholder for activation function
+     * Activation function
      *
-     * Nothing being called here yet.
+     *
      */
     public function activate() {
         $installed = get_option( 'magiccards_installed' );
@@ -179,14 +153,6 @@ final class Magic_Cards {
         if ( $this->is_request( 'frontend' ) ) {
             require_once MAGICCARDS_INCLUDES . '/class-frontend.php';
         }
-
-        if ( $this->is_request( 'ajax' ) ) {
-            // require_once MAGICCARDS_INCLUDES . '/class-ajax.php';
-        }
-
-        if ( $this->is_request( 'rest' ) ) {
-//            require_once MAGICCARDS_INCLUDES . '/class-rest-api.php';
-        }
     }
 
     /**
@@ -198,8 +164,6 @@ final class Magic_Cards {
 
         add_action( 'init', array( $this, 'init_classes' ) );
 
-        // Localize plugin
-//        add_action( 'init', array( $this, 'localization_setup' ) );
     }
 
     /**
@@ -217,30 +181,14 @@ final class Magic_Cards {
             $this->container['frontend'] = new MTGApp\Frontend();
         }
 
-        if ( $this->is_request( 'ajax' ) ) {
-            // $this->container['ajax'] =  new MTGApp\Ajax();
-        }
-
-        if ( $this->is_request( 'rest' ) ) {
-//            $this->container['rest'] = new MTGApp\REST_API();
-        }
-
         $this->container['assets'] = new MTGApp\Assets();
     }
 
-    /**
-     * Initialize plugin for localization
-     *
-     * @uses load_plugin_textdomain()
-     */
-//    public function localization_setup() {
-//        load_plugin_textdomain( 'magiccards', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
-//    }
 
     /**
      * What type of request is this?
      *
-     * @param  string $type admin, ajax, cron or frontend.
+     * @param  string $type admin or frontend.
      *
      * @return bool
      */
@@ -248,15 +196,6 @@ final class Magic_Cards {
         switch ( $type ) {
             case 'admin' :
                 return is_admin();
-
-            case 'ajax' :
-                return defined( 'DOING_AJAX' );
-
-            case 'rest' :
-                return defined( 'REST_REQUEST' );
-
-            case 'cron' :
-                return defined( 'DOING_CRON' );
 
             case 'frontend' :
                 return ( ! is_admin() || defined( 'DOING_AJAX' ) ) && ! defined( 'DOING_CRON' );

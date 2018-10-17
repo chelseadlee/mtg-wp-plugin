@@ -16,7 +16,7 @@ const magicCards = new Vue({
         filteredList() {
             // filter cards by type (typeFilter) and by search input (search)
             return this.cards.filter((card) => {
-                return card.types.indexOf(this.typeFilter) !== -1 && card.name.toLowerCase().includes(this.search.toLowerCase());
+                return card.types.indexOf(this.typeFilter) !== -1;
             });
         }
     },
@@ -28,7 +28,8 @@ const magicCards = new Vue({
                     orderBy: this.orderBy,
                     contains: 'imageUrl',
                     page: this.currentPage,
-                    pageSize: this.pageSize
+                    pageSize: this.pageSize,
+                    name: this.search
                 }
             })
                 .then((response) => {
@@ -74,6 +75,12 @@ const magicCards = new Vue({
 
             // reset data and load cards with new sort order
             this.orderBy = option;
+            this.currentPage = 1;
+            this.cards = [];
+            this.loadCards();
+        },
+        searchCards() {
+
             this.currentPage = 1;
             this.cards = [];
             this.loadCards();

@@ -7,7 +7,7 @@ namespace MTGApp;
 class Assets {
 
     function __construct() {
-        add_action( 'wp_enqueue_scripts', [ $this, 'register' ], 5 );
+        add_action( 'wp_enqueue_scripts', array( $this, 'register' ), 5 );
     }
 
     /**
@@ -58,15 +58,14 @@ class Assets {
      * @return array
      */
     public function get_scripts() {
-        $prefix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '.min' : '';
 
         $scripts = [
             'vue' => [
-                'src'       => 'https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.min.js',
+                'src'       => '//cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js',
                 'version'   => '2.5.17',
             ],
             'axios' => [
-                'src'       => 'https://unpkg.com/axios/dist/axios.min.js',
+                'src'       => '//unpkg.com/axios/dist/axios.min.js',
                 'version'   => '0.18.0',
             ],
             'magiccards-frontend' => [
@@ -88,7 +87,7 @@ class Assets {
 
         $styles = [
             'bootstrap' => [
-                'src' =>  'https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css'
+                'src' =>  '//stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css'
             ],
             'magiccards-frontend' => [
                 'src' =>  MAGICCARDS_ASSETS . '/css/style.css'
